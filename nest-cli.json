@@ -1,0 +1,73 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/blog/src",
+  "monorepo": true,
+  "root": "apps/blog",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/blog/tsconfig.app.json"
+  },
+  "projects": {
+    "blog": {
+      "type": "application",
+      "root": "apps/blog",
+      "entryFile": "main",
+      "sourceRoot": "apps/blog/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/blog/tsconfig.app.json"
+      }
+    },
+    "auth": {
+      "type": "application",
+      "root": "apps/auth",
+      "entryFile": "main",
+      "sourceRoot": "apps/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/auth/tsconfig.app.json"
+      }
+    },
+    "notification": {
+      "type": "application",
+      "root": "apps/notification",
+      "entryFile": "main",
+      "sourceRoot": "apps/notification/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/notification/tsconfig.app.json",
+        "assets": [
+          {
+            "include": "apps/notification/src/templates/*",
+            "outDir": "dist/templates/",
+            "watchAssets": true
+          }
+        ]
+      }
+    },
+    "profile": {
+      "type": "application",
+      "root": "apps/profile",
+      "entryFile": "main",
+      "sourceRoot": "apps/profile/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/profile/tsconfig.app.json"
+      }
+    },
+    "common": {
+      "type": "library",
+      "root": "libs/common",
+      "entryFile": "index",
+      "sourceRoot": "libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
+      }
+    },
+    "feed": {
+      "type": "application",
+      "root": "apps/feed",
+      "entryFile": "main",
+      "sourceRoot": "apps/feed/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/feed/tsconfig.app.json"
+      }
+    }
+  }
+}
