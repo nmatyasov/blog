@@ -17,6 +17,7 @@ import {
   ProfileSchema,
 } from '../../profile/src/schemas/profile.schema';
 import { Feed, FeedSchema } from '../../feed/src/schemas/feed.schema';
+import { AdminMongooseModule } from '@app/common/admin/mongoose/mongoose.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { Feed, FeedSchema } from '../../feed/src/schemas/feed.schema';
       name: FILES_SERVICE,
     }),
     AuthModule,
+    AdminMongooseModule,
   ],
   controllers: [BlogController],
   providers: [BlogService, BlogRepository],
